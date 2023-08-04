@@ -1,12 +1,32 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountNamePrefix": {
+      "type": "string",
+      "defaultValue":"samplestorageuserx",
+      "metadata": {
+        "description": "Prefix for the storage account name."
+      }
+    },
+    "numberOfAccounts": {
+      "type": "int",
+      "defaultValue": 2,
+      "metadata": {
+        "description": "Number of storage accounts to create."
+      }
+    }
+  },
   "variables": {},
   "resources": [
     {
       "apiVersion": "2019-06-01",
       "type": "Microsoft.Storage/storageAccounts",
-      "name": "samplestorageuserx",
+      "name": "[format('{0}{1}', parameters('storageAccountNamePrefix'), add(copyIndex(), 1))]",
+      "copy": {
+        "name": "storageCopyLoop",
+        "count": "[parameters('numberOfAccounts')]"
+      },
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS",
