@@ -18,7 +18,9 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 - checkout: self
-- task: PowerShell@2
+- task: AzurePowerShell@5
   inputs:
-    filePath: $(Build.SourcesDirectory)/deploy.ps1  # Path to your deploy.ps1 script
-  displayName: 'Run deploy.ps1 script'
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/deploy.ps1'
+    azurePowerShellVersion: 'LatestVersion'
