@@ -17,9 +17,9 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-
-- task: PowerShell@2
+- task: AzurePowerShell@5
   inputs:
-    targetType: 'inline'
-    script: |
-      -ScriptPath .\deploy.ps1
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
+    azurePowerShellVersion: 'LatestVersion'
