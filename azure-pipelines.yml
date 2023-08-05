@@ -8,10 +8,10 @@ trigger:
 
 resources:
   repositories:
-  - repository: shaywn2
+  - repository: AzureHW
     type: git
-    name: AzureHW/AzureHW
-    ref: master
+    name: AzureHW
+    ref: azure-pipelines-training
 
 pool:
   name: default
