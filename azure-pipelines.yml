@@ -20,4 +20,6 @@ steps:
 - checkout: self
 - task: PowerShell@2
   inputs:
-    filePath: '.\deploy.ps1'
+    filePath: 'AzureHW\deploy.ps1'  # Path to your deploy.ps1 script
+    workingDirectory: '$(Pipeline.Workspace)'
+  displayName: 'Run deploy.ps1 script'
