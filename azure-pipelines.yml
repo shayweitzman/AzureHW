@@ -22,5 +22,5 @@ steps:
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
+    ScriptPath: '$(Build.SourcesDirectory)/deploy.ps1'
     azurePowerShellVersion: 'LatestVersion'
