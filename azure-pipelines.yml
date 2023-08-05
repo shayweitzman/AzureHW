@@ -10,7 +10,7 @@ resources:
   repositories:
   - repository: AzureHW
     type: git
-    name: AzureHW\
+    name: AzureHW/
     ref: azure-pipelines-training
 
 pool:
