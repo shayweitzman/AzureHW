@@ -20,5 +20,5 @@ steps:
 - checkout: self
 - task: PowerShell@2
   inputs:
-    filePath: $(Build.SourcesDirectory)/AzureHW/deploy.ps1  # Path to your deploy.ps1 script
+    filePath: $(Build.SourcesDirectory)/deploy.ps1  # Path to your deploy.ps1 script
   displayName: 'Run deploy.ps1 script'
