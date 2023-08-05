@@ -8,7 +8,7 @@ trigger:
 
 resources:
   repositories:
-  - repository: AzureHW
+  - repository: shaywn2
     type: git
     name: AzureHW/AzureHW
     ref: master
