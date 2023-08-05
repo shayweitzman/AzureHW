@@ -6,6 +6,13 @@
 trigger:
 - master
 
+resources:
+  repositories:
+  - repository: AzureHW
+    type: git
+    name: AzureHW/AzureHW
+    ref: master
+
 pool:
   name: default
 
@@ -17,7 +24,7 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-  
+- checkout: test
 - task: PowerShell@2
   inputs:
     filePath: '.\deploy.ps1'
