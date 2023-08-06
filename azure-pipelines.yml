@@ -21,13 +21,13 @@ steps:
 #     ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
 #     azurePowerShellVersion: 'LatestVersion'
 
-- task: AzurePowerShell@5
-  displayName: 'Deploy Windows'
-  inputs:
-    azureSubscription: 'uniqueConnectionName'
-    ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
-    azurePowerShellVersion: 'LatestVersion'
+# - task: AzurePowerShell@5
+#   displayName: 'Deploy Windows'
+#   inputs:
+#     azureSubscription: 'uniqueConnectionName'
+#     ScriptType: 'FilePath'
+#     ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
+#     azurePowerShellVersion: 'LatestVersion'
 - task: AzurePowerShell@5
   displayName: 'Install Az-PS Module on the VM'
   inputs:
