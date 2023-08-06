@@ -14,6 +14,7 @@ steps:
   displayName: 'Run a multi-line script'
   
 - task: AzurePowerShell@5
+  displayName: 'Create storage account'
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
@@ -21,6 +22,7 @@ steps:
     azurePowerShellVersion: 'LatestVersion'
 
 - task: AzurePowerShell@5
+  displayName: 'Deploy Windows'
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
