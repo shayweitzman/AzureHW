@@ -16,12 +16,11 @@ steps:
         $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
         $result = Invoke-AzVMRunCommand -ResourceGroupName $resourceGroupName -VMName $vmName -CommandId 'RunPowerShellScript' -ScriptPath $command
 
-        Write-Host $result.Value[0].Message
 
-- task: AzurePowerShell@5
-  displayName: 'Deploy Windows'
-  inputs:
-    azureSubscription: 'uniqueConnectionName'
-    ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
-    azurePowerShellVersion: 'LatestVersion'
+# - task: AzurePowerShell@5
+#   displayName: 'Deploy Windows'
+#   inputs:
+#     azureSubscription: 'uniqueConnectionName'
+#     ScriptType: 'FilePath'
+#     ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
+#     azurePowerShellVersion: 'LatestVersion'
