@@ -12,7 +12,7 @@ steps:
     Inline: |
         $vmName = 'simple-vm'
         $resourceGroupName = 'WindowsRG'
-        $command = 'az vm list-skus --resource-group $resourceGroupName --name $vmName'
+        $command = 'ls'
         $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
         $result = Invoke-AzVMRunCommand -ResourceGroupName $resourceGroupName -VMName $vmName -CommandId 'RunPowerShellScript' -ScriptPath $command
 
