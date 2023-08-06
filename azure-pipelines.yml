@@ -5,21 +5,18 @@ pool:
   name: default
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-  
 - task: AzurePowerShell@5
-  displayName: 'Create storage account'
   inputs:
     azureSubscription: 'uniqueConnectionName'
-    ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
-    azurePowerShellVersion: 'LatestVersion'
+    ScriptType: 'InlineScript'
+    Inline: |
+        $vmName = 'simple-vm'
+        $resourceGroupName = 'WindowsRG'
+        $command = 'az vm list-skus --resource-group $resourceGroupName --name $vmName'
+        $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
+        $result = Invoke-AzVMRunCommand -ResourceGroupName $resourceGroupName -VMName $vmName -CommandId 'RunPowerShellScript' -ScriptPath $command
+
+        Write-Host $result.Value[0].Message
 
 - task: AzurePowerShell@5
   displayName: 'Deploy Windows'
