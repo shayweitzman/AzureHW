@@ -13,13 +13,13 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
   
-- task: AzurePowerShell@5
-  displayName: 'Create storage account'
-  inputs:
-    azureSubscription: 'uniqueConnectionName'
-    ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
-    azurePowerShellVersion: 'LatestVersion'
+# - task: AzurePowerShell@5
+#   displayName: 'Create storage account'
+#   inputs:
+#     azureSubscription: 'uniqueConnectionName'
+#     ScriptType: 'FilePath'
+#     ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
+#     azurePowerShellVersion: 'LatestVersion'
 
 - task: AzurePowerShell@5
   displayName: 'Deploy Windows'
@@ -27,4 +27,11 @@ steps:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
     ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
+    azurePowerShellVersion: 'LatestVersion'
+- task: AzurePowerShell@5
+  displayName: 'Install Az-PS Module on the VM'
+  inputs:
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/installAzPS.ps1'
     azurePowerShellVersion: 'LatestVersion'
