@@ -5,3 +5,4 @@ New-AzResourceGroupDeployment `
     -adminUsername "shaywinuser" `
     -adminPassword "shayWinPass!123" `
     -dnsLabelPrefix "shaywindns"
+    
