@@ -46,5 +46,5 @@ steps:
       -ResourceGroupName $resourceGroupName `
       -VMName $vmName `
       -CommandId 'RunPowerShellScript' `
-      -ScriptString 'New-AzResourceGroup -Name exampleGroup -Location westus'
+      -ScriptString ' '
     azurePowerShellVersion: 'LatestVersion'
