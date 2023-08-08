@@ -28,23 +28,23 @@ steps:
 #     ScriptType: 'FilePath'
 #     ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
 #     azurePowerShellVersion: 'LatestVersion'
-# - task: AzurePowerShell@5
-#   displayName: 'Install Az-PS Module on the VM'
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'FilePath'
-#     ScriptPath: '$(Build.SourcesDirectory)/installAzPS.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
 - task: AzurePowerShell@5
+  displayName: 'Install Az-PS Module on the VM'
   inputs:
     azureSubscription: 'uniqueConnectionName'
-    ScriptType: 'InlineScript'
-    Inline: |
-      $vmName = 'simple-vm'
-      $resourceGroupName = 'WindowsRG'
-      Invoke-AzVMRunCommand `
-      -ResourceGroupName $resourceGroupName `
-      -VMName $vmName `
-      -CommandId 'RunPowerShellScript' `
-      -ScriptString ' '
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/installAzPS.ps1'
     azurePowerShellVersion: 'LatestVersion'
+# - task: AzurePowerShell@5
+#   inputs:
+#     azureSubscription: 'uniqueConnectionName'
+#     ScriptType: 'InlineScript'
+#     Inline: |
+#       $vmName = 'simple-vm'
+#       $resourceGroupName = 'WindowsRG'
+#       Invoke-AzVMRunCommand `
+#       -ResourceGroupName $resourceGroupName `
+#       -VMName $vmName `
+#       -CommandId 'RunPowerShellScript' `
+#       -ScriptString ' '
+#     azurePowerShellVersion: 'LatestVersion'
