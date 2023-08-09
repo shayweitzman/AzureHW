@@ -24,5 +24,5 @@ New-AzStorageContainer -Name ${containerNamePrefix}2 -Context $destAccCtx
 Get-ChildItem -Path $baseDir| Set-AzStorageBlobContent -Container ${containerNamePrefix}1 -Context $srcAccCtx
 
 #Copy blobs from src account to dest account.
-$blobs = Get-AzStorageBlob -Context $acc1Ctx -Container ${containerNamePrefix}1
-$blobs | Start-AzStorageBlobCopy -Context $acc1Ctx -DestContext $acc2Ctx -DestContainer ${containerNamePrefix}2
+$blobs = Get-AzStorageBlob -Context $srcAccCtx -Container ${containerNamePrefix}1
+$blobs | Start-AzStorageBlobCopy -Context $srcAccCtx -DestContext $destAccCtx -DestContainer ${containerNamePrefix}2
