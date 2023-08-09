@@ -6,11 +6,11 @@ pool:
 
 steps:
 - task: AzurePowerShell@5
-  displayName: 'Create storage account'
+  displayName: 'Create Storage Accounts'
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/scripts/storageAccountsDeploy.ps1'
+    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
     azurePowerShellVersion: 'LatestVersion'
 
 - task: AzurePowerShell@5
@@ -18,17 +18,17 @@ steps:
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/scripts/windowsDeploy.ps1'
+    ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
     azurePowerShellVersion: 'LatestVersion'
 - task: AzurePowerShell@5
-  displayName: 'Install Az-PS Module on the VM'
+  displayName: 'Install Azure-PowerShell & Connect'
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/scripts/installAndConnectAz.ps1'
+    ScriptPath: '$(Build.SourcesDirectory)/installAndConnectAz.ps1'
     azurePowerShellVersion: 'LatestVersion'
 - task: AzurePowerShell@5
-  displayName: 'Create and copy 100 blobs'
+  displayName: 'Create & Copy 100 blobs'
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
