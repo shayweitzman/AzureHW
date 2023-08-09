@@ -2,20 +2,20 @@ $vmName = 'simple-vm'
 $resourceGroupName = 'WindowsRG'
 $identityName = 'shayIdentity'
 $subscriptionId = convertfrom-json (az account list --query "[?isDefault].id | [0]")
-# Write-Host "Creating managed identity $identityName on $resourceGroupName"
-# New-AzUserAssignedIdentity -ResourceGroupName $resourceGroupName -Name  $identityName -Location 'eastus'
+Write-Host "Creating managed identity $identityName on $resourceGroupName"
+New-AzUserAssignedIdentity -ResourceGroupName $resourceGroupName -Name  $identityName -Location 'eastus'
 
-# Write-Host "Installing Azure-PS to $vmName"
-# Invoke-AzVMRunCommand `
-# -ResourceGroupName $resourceGroupName `
-# -VMName $vmName `
-# -CommandId 'RunPowerShellScript' `
-# -ScriptString 'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force;Install-Module -Name Az -Scope AllUsers -Force'
-# Write-Host "Azure-PS Installed successfully to $vmName!"
+Write-Host "Installing Azure-PS to $vmName"
+Invoke-AzVMRunCommand `
+-ResourceGroupName $resourceGroupName `
+-VMName $vmName `
+-CommandId 'RunPowerShellScript' `
+-ScriptString 'Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force;Install-Module -Name Az -Scope AllUsers -Force'
+Write-Host "Azure-PS Installed successfully to $vmName!"
 
 Write-Host "Assign managed identity $identityName to $vmName"
 $identity = Get-AzADServicePrincipal -SearchString $identityName
-echo $identity.id
+
 Write-Host "Grant access to managed identity $identityName"
 New-AzRoleAssignment -ObjectId $identity.id  -RoleDefinitionName 'Contributor'  -Scope /subscriptions/$subscriptionId
 New-AzRoleAssignment -ObjectId $identity.Id  -RoleDefinitionName 'Storage Blob Data Owner'  -Scope /subscriptions/$subscriptionId
