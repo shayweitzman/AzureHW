@@ -21,7 +21,7 @@ $destAccCtx = New-AzStorageContext -StorageAccountName ${storageAccountNamePrefi
 New-AzStorageContainer -Name ${containerNamePrefix}2 -Context $destAccCtx
 
 #Upload blob files to src storage account.
-Get-ChildItem -Path $baseDir| Set-AzStorageBlobContent -Container ${containerNamePrefix}1 -Context $acc1Ctx
+Get-ChildItem -Path $baseDir| Set-AzStorageBlobContent -Container ${containerNamePrefix}1 -Context $srcAccCtx
 
 #Copy blobs from src account to dest account.
 $blobs = Get-AzStorageBlob -Context $acc1Ctx -Container ${containerNamePrefix}1
