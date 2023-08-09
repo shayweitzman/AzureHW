@@ -5,46 +5,26 @@ pool:
   name: default
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: AzurePowerShell@5
+  displayName: 'Create storage account'
+  inputs:
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
+    azurePowerShellVersion: 'LatestVersion'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-  
-# - task: AzurePowerShell@5
-#   displayName: 'Create storage account'
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'FilePath'
-#     ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
-
-# - task: AzurePowerShell@5
-#   displayName: 'Deploy Windows'
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'FilePath'
-#     ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
+- task: AzurePowerShell@5
+  displayName: 'Deploy Windows'
+  inputs:
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
+    azurePowerShellVersion: 'LatestVersion'
 - task: AzurePowerShell@5
   displayName: 'Install Az-PS Module on the VM'
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/installAzPS.ps1'
+    ScriptPath: '$(Build.SourcesDirectory)/installAndConnectAz.ps1'
     azurePowerShellVersion: 'LatestVersion'
-# - task: AzurePowerShell@5
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'InlineScript'
-#     Inline: |
-#       $vmName = 'simple-vm'
-#       $resourceGroupName = 'WindowsRG'
-#       Invoke-AzVMRunCommand `
-#       -ResourceGroupName $resourceGroupName `
-#       -VMName $vmName `
-#       -CommandId 'RunPowerShellScript' `
-#       -ScriptString ' '
-#     azurePowerShellVersion: 'LatestVersion'
+
