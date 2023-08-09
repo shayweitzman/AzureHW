@@ -4,4 +4,4 @@ Invoke-AzVMRunCommand `
 -ResourceGroupName $resourceGroupName `
 -VMName $vmName `
 -CommandId 'RunPowerShellScript' `
--ScriptPath .\createCopyBlobs.ps1
+-ScriptPath \scripts\createCopyBlobs.ps1
