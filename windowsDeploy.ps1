@@ -1,4 +1,4 @@
-$templateFile = "/templates/windowsTemplate.json"
+$templateFile = "windowsTemplate.json"
 $resourceGroupName = 'WindowsRG'
 
 New-AzResourceGroup -Name $resourceGroupName -Location "eastus"
