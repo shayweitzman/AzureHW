@@ -37,6 +37,6 @@ steps:
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
-    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
+    ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
     ScriptArguments: '-adminUsername $(adminUsername) -adminPassword $(windowsUserPassword) -dnsLabelPrefix $(dnsLabelPrefix)'
     azurePowerShellVersion: 'LatestVersion'
