@@ -12,7 +12,6 @@ steps:
     ScriptType: 'FilePath'
     ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
     azurePowerShellVersion: 'LatestVersion'
-
 - task: AzurePowerShell@5
   displayName: 'Deploy Windows'
   inputs:
