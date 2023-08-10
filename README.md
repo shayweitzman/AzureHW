@@ -3,22 +3,22 @@
 [![Build Status](https://dev.azure.com/shaywn2/shaywn2/_apis/build/status%2Fshayweitzman.AzureHW?branchName=master)](https://dev.azure.com/shaywn2/shaywn2/_build/latest?definitionId=3&branchName=master)
 
 
-# Azure ARM Template Deployment and Blob Management
+## Project Milestones
 
-## Azure Subscription Setup
+### Azure Subscription Setup
 - Established a free Azure subscription account to facilitate resource deployment.
 
-## ARM Template for Storage Accounts
+### ARM Template for Storage Accounts
 - Implemented an Azure Resource Manager (ARM) template to define storage account configurations.
 - Utilized the ARM template to deploy two distinct storage accounts.
 
-## ARM Template for Windows Server
+### ARM Template for Windows Server
 - Developed an ARM template describing the specifications of a Windows server.
 
-## Continuous Deployment (CD) Pipeline
+### Continuous Deployment (CD) Pipeline
 - Employed Azure DevOps pipelines to automate the continuous deployment of 2 storage accounts and Windows server.
 
-## Blob Management Script
+### Blob Management Script
 - Created a script to manage blobs within Azure storage accounts.
 - The script achieved the creation, uploading, and copying of 100 blobs from one storage account to another.
 
