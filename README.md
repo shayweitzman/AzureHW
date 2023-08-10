@@ -15,12 +15,15 @@
 ### ARM Template for Windows Server
 - Developed an ARM template describing the specifications of a Windows server.
 
+### Azure PowerShell Installation and Connection on the Windows Server: 
+- Installing Azure PowerShell on the Windows server and establishing a connection to Azure, enabling efficient management of Azure resources through PowerShell scripts.
+
 ### Continuous Deployment (CD) Pipeline
-- Employed Azure DevOps pipelines to automate the continuous deployment of 2 storage accounts and Windows server.
+- Employed Azure DevOps pipeline to automate continuous deployment.
 
 ### Blob Management Script
 - Created a script to manage blobs within Azure storage accounts.
-- The script achieved the creation, uploading, and copying of 100 blobs from one storage account to another.
+- The script achieved the creation, uploading, and copying of 100 blobs from one storage account to another through the Windows server.
 
 ## Main Topics Explored
 
@@ -33,9 +36,8 @@ Azure Storage Accounts provide a scalable and secure way to store various types 
 ### Azure DevOps Pipeline
 Azure DevOps Pipeline is a robust automation platform that enables continuous integration and continuous delivery (CI/CD) workflows. It allows you to define, build, test, and deploy applications and infrastructure code in an automated and reliable manner, ensuring fast and consistent releases.
 
+### Managed Identities
+Azure Managed Identities simplify authentication for applications and services by eliminating the need for manual credential management. These identities, automatically managed by Azure, offer secure and seamless access to Azure resources, enhancing overall application security and reducing complexity.
+
 ### Storage Account - Containers - Blobs Hierarchy
 In Azure Storage Accounts, data is organized into a hierarchical structure. At the top level, you have the Storage Account itself. Within a Storage Account, you create containers, which are logical units for grouping blobs. Each container can hold multiple blobs, which are individual pieces of data. Blobs can be of various types, such as block blobs for files, page blobs for virtual hard disks, or append blobs for log data. This hierarchy allows for efficient data organization and management within Azure Storage.
-
-## Conclusion
-
-This repository exemplifies the practical use of Azure services to create, manage, and automate cloud-based infrastructure. By combining ARM templates, Azure storage accounts, Azure DevOps pipelines, and custom scripts, the project accomplished streamlined resource deployment and effective blob management. The above description provides an overview of the tasks completed and the central concepts explored throughout the project.
