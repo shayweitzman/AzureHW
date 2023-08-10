@@ -5,5 +5,4 @@ New-AzResourceGroupDeployment `
   -Name  storageAccountsDeploy `
   -ResourceGroupName $resourceGroupName `
   -TemplateFile $templateFile `
-  -storageAccountNamePrefix "samplestorageaccx" `
-  -numberOfAccounts 2
+  -TemplateParameterFile 'storageAccountsParameters.json'
