@@ -1,10 +1,7 @@
 $templateFile = "windowsTemplate.json"
-$resourceGroupName = 'WindowsRG'
+$resourceGroupName = 'WindowsRG2'
 
 New-AzResourceGroup -Name $resourceGroupName -Location "eastus"
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFile `
-    -adminUsername "shaywinuser" `
-    -adminPassword "shayWinPass!1" `
-    -dnsLabelPrefix "shaywindns"
