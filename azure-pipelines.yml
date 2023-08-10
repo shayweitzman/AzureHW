@@ -5,38 +5,32 @@ pool:
   name: default
 
 steps:
-# - task: AzurePowerShell@5
-#   displayName: 'Create Storage Accounts'
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'FilePath'
-#     ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
-# - task: AzurePowerShell@5
-#   displayName: 'Deploy Windows'
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'FilePath'
-#     ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
-# - task: AzurePowerShell@5
-#   displayName: 'Install Azure-PowerShell & Connect'
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'FilePath'
-#     ScriptPath: '$(Build.SourcesDirectory)/installAndConnectAz.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
-# - task: AzurePowerShell@5
-#   displayName: 'Create & Copy 100 blobs'
-#   inputs:
-#     azureSubscription: 'uniqueConnectionName'
-#     ScriptType: 'FilePath'
-#     ScriptPath: '$(Build.SourcesDirectory)/invokeCreateCopyBlobs.ps1'
-#     azurePowerShellVersion: 'LatestVersion'
 - task: AzurePowerShell@5
+  displayName: 'Create Storage Accounts'
+  inputs:
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/storageAccountsDeploy.ps1'
+    azurePowerShellVersion: 'LatestVersion'
+- task: AzurePowerShell@5
+  displayName: 'Deploy Windows'
   inputs:
     azureSubscription: 'uniqueConnectionName'
     ScriptType: 'FilePath'
     ScriptPath: '$(Build.SourcesDirectory)/windowsDeploy.ps1'
     ScriptArguments: '-adminUsername $(adminUsername) -adminPassword $(windowsUserPassword) -dnsLabelPrefix $(dnsLabelPrefix)'
+    azurePowerShellVersion: 'LatestVersion'
+- task: AzurePowerShell@5
+  displayName: 'Install Azure-PowerShell & Connect'
+  inputs:
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/installAndConnectAz.ps1'
+    azurePowerShellVersion: 'LatestVersion'
+- task: AzurePowerShell@5
+  displayName: 'Create & Copy 100 blobs'
+  inputs:
+    azureSubscription: 'uniqueConnectionName'
+    ScriptType: 'FilePath'
+    ScriptPath: '$(Build.SourcesDirectory)/invokeCreateCopyBlobs.ps1'
     azurePowerShellVersion: 'LatestVersion'
