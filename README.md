@@ -43,4 +43,4 @@ Azure Managed Identities simplify authentication for applications and services b
 In Azure Storage Accounts, data is organized into a hierarchical structure. At the top level, you have the Storage Account itself. Within a Storage Account, you create containers, which are logical units for grouping blobs. Each container can hold multiple blobs, which are individual pieces of data. Blobs can be of various types, such as block blobs for files, page blobs for virtual hard disks, or append blobs for log data. This hierarchy allows for efficient data organization and management within Azure Storage.
 
 ## Dashboard
-!(https://github.com/shayweitzman/AzureHW/blob/main/Dashboard.jpeg?raw=true)
+![Dashboard](https://github.com/shayweitzman/AzureHW/blob/main/Dashboard.jpeg?raw=true)
