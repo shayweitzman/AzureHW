@@ -1,5 +1,5 @@
 $templateFile = "storageAccountTemplate.json"
-$resourceGroupName = 'storageAccounts'
+$resourceGroupName = 'storageAccounts2'
 New-AzResourceGroup -Name $resourceGroupName -Location "eastus"
 New-AzResourceGroupDeployment `
   -Name  storageAccountsDeploy `
