@@ -1,5 +1,5 @@
-$storageAccountNamePrefix = "samplestorageaccx"
-$containerNamePrefix = "samplecontainer"
+$storageAccountNamePrefix = "samplestorageaccxx"
+$containerNamePrefix = "samplecontainerx"
 $baseDir = "C:\blobs"
 
 # Create the directory if it doesn't exist

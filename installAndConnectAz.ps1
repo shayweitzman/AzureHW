@@ -1,6 +1,6 @@
 $vmName = 'simple-vm'
-$resourceGroupName = 'WindowsRG'
-$identityName = 'shayIdentity'
+$resourceGroupName = 'WindowsRG2'
+$identityName = 'shayIdentity2'
 $subscriptionId = convertfrom-json (az account list --query "[?isDefault].id | [0]")
 
 Write-Host "Creating managed identity $identityName on $resourceGroupName"

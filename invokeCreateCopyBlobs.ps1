@@ -1,4 +1,4 @@
-$resourceGroupName = 'WindowsRG'
+$resourceGroupName = 'WindowsRG2'
 $vmName = 'simple-vm'
 Invoke-AzVMRunCommand `
 -ResourceGroupName $resourceGroupName `

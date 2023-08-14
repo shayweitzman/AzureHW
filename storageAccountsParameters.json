@@ -5,13 +5,13 @@
       "storageAccounts": {
         "value": [
           {
-            "storageAccountName": "samplestorageaccx1",
+            "storageAccountName": "samplestorageaccxx1",
             "skuName": "Standard_LRS",
             "skuTier": "Standard",
             "accountKind": "StorageV2"
           },
           {
-            "storageAccountName": "samplestorageaccx2",
+            "storageAccountName": "samplestorageaccxx2",
             "skuName": "Standard_LRS",
             "skuTier": "Standard",
             "accountKind": "StorageV2"

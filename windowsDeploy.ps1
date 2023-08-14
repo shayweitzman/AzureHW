@@ -4,7 +4,7 @@ param (
     [string]$dnsLabelPrefix
 )
 $templateFile = "windowsTemplate.json"
-$resourceGroupName = 'WindowsRG'
+$resourceGroupName = 'WindowsRG2'
 
 New-AzResourceGroup -Name $resourceGroupName -Location "eastus"
 New-AzResourceGroupDeployment `
